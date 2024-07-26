@@ -1,0 +1,30 @@
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+  font-size: 3.5rem;
+  }
+}
+.circle{
+  height: 70px;
+  width: 70px;
+  background-color:black;
+  color: black;
+  padding: 12px;
+  font-size: 30px;
+  border-radius:50%;
+  display: inline-block;
+  margin-bottom: 20px;
+} 
+
+/* nav a {
+  text-decoration: none;
+  color: #fff;
+} */
