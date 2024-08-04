@@ -107,33 +107,22 @@
                 display: inline-block;
                 margin-bottom: 20px;
             }
-            .auth {
-                display: flex;
-                flex-direction: column;
-            }
             .authentication {
                 position: relative; /* Absolute positioning */
                 top: -40px; /* Align to the top */
                 left: 550px; /* Align to the left */
                 padding: 20px; /* Padding inside the section */
                 margin: 20px; /* Margin around the section */
-                /*display: flex; /**/
-                /*flex-direction: row; /* Arrange children in a row */
-                /*gap: 20px;*/
 
                
             }
-            .authentication #deconnexion {
+            .authentication a {
                 transition: 2s linear all;
             }
-            .authentication #deconnexion:hover {
+            .authentication a:hover {
                 color: #000;
-                /* background-color: #f0fb06; */
             }
-            .authentication #deconnexion {
-                height: 35px;
-                width: 130px;
-                padding: 0px 0px; 
+            .authentication a {
                 border: 1px solid #000;
                 border-radius: 10px;
             }
@@ -146,11 +135,9 @@
                 width: 100px;
                 padding: 0px 10px; 
                 margin-top: 20px;
-                text-decoration: none !important; 
+                text-decoration: none;
                 color: #000;
                 background-color: yellow;
-                border: 1px solid #000;
-                border-radius: 10px;
                 
             }
             #inscription {
@@ -161,28 +148,18 @@
                 text-decoration: none;
                 color: #000;
                 background-color: orange;
-                border: 1px solid #000;
-                border-radius: 10px;
                 
             }
-            /* .desinscription a {
-                background-color: red;
-                border: 1px solid #000;
-                border-radius: 10px;
-                padding: 0px 20px;
-                text-decoration: none !important;
-                color: #000; 
-            } */
             #connexion {
                 transition: 1s linear all;
             }
             #inscription {
                 transition: 1s linear all;
             }
-            #connexion:hover {
+            #connexion a:hover {
                 color: #fff;
             }
-            #inscription:hover {
+            #inscription a:hover {
                 color: #fff;
             }
             /* nav {
@@ -193,60 +170,6 @@
             max-width: 400px;
             } */
             /* Ensure the form is centered and has a black border */
-            .principal {
-              border: 2px solid black; /* Black border around the entire form */
-              max-width: 500px; /* Limit the form width */
-              border-radius: 15px; /* Rounded corners for the form */
-              background-color: #f9f9f9; /* Light background color */
-              padding-top: 60px;
-              margin: 20px auto; /* Center the form horizontally */
-              padding: 50px; /* Padding inside the form */
-
-            }
-            .box{
-              display: flex;
-              flex-direction: row;
-             
-            }
-            .small-box1 {
-            width: 150px;
-            height: 150px;
-            border: 2px solid #000; /* Black border */
-            background-color: yellow; /* Light background color */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px auto; /* Center the box horizontally */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
-        }
-        .small-box1 h5{
-          color: #000;
-          top: 60px;
-        }
-        .small-box1 a {
-          text-decoration: none;
-        }
-            .small-box2 {
-            width: 150px;
-            height: 150px;
-            border: 2px solid #000; /* Black border */
-            background-color: orange; /* Light background color */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px auto; /* Center the box horizontally */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
-        }
-        .small-box2 h5{
-          color: #000;
-          top: 60px;
-        }
-        img {
-          width: 100%;
-          height: auto;
-        }
             .form-container {
                 padding-top: 60px;
                 border: 2px solid black; /* Black border around the entire form */
@@ -353,6 +276,8 @@
 
 <div class="container-fluid">
     <div class="row">
+        
+        
             <div class="section1">
                     <!-- <p>Research</p> -->
                     <!-- <div class="container"> -->
@@ -377,40 +302,38 @@
     <div class="col-9">
         <div class="section3">
             <div class="col-5 offset-0">
-            <!-- <a href="{% url 'user:home' %}"></a>--><h2>menu principal</h2> 
+            <!-- <a href="{% url 'user:home' %}"></a>--><h2>Declarer un enfant</h2> 
             </div>
             <!-- <ul> -->
                 <div class="authentication">
-                    <div class="row"> 
-                        <div class="col-2">     
-                                {% if user.is_authenticated %}
-                                <a href="{% url 'user:logout' %}" class="btn btn-danger" id="deconnexion"><i class="fa-solid fa-power-off"></i> Deconnection</a>
+                    <div class="row">
+                        <div class="col-2">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'user:logout' %}" class="btn btn-danger"><i class="fa-solid fa-power-off"></i> Deconnection</a>
                         </div>
-                            <div class="col-2"> 
-                                <!-- <div class="auth"> -->
-                                    <p>Hello, {{ user.username }}!</p>
-                                    {% if user.fonction == 'officier' %} 
-                                        <p>officier</p>
-                                    {% elif user.fonction == 'chef_officier' %}
-                                        <p>chef officier</p>
-                                    {% endif %}
-                                <!-- </div> -->
-                            </div> 
+                        <div class="col-2">
+                                <p>Hello, {{ user.username }}!</p>
+                                {% if user.fonction == 'officier' %}
+                                    <p>officier</p>
+                                {% elif user.fonction == 'chef_officier' %}
+                                    <p>chef officier</p>
+                                 {% endif %}
+                        </div>
                             {% else %}
-                            <!-- <div class="desinscription">id="connexion" id="inscription" -->
-                                <a href="{% url 'user:login' %}">Connexion</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <!-- <div class="desinscription"> -->
+                                <a href="{% url 'user:login' %}" id="connexion">Connexion</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <!-- </div> -->
                               <!-- <div class="col-2"> -->
-                                <a href="{% url 'user:register' %}">Inscription</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="{% url 'user:register' %}" id="inscription">Inscription</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <!-- </div> -->
                             {% endif %}
-                              <div class="col-1"> 
+                              <div class="col-1">
                                 <div class="circle">
                                     <!-- <img src="tof.png" alt="tof"> -->
                                 </div>
-                              </div> 
+                              </div>
                             <!-- </div> -->
-                    <!-- </div> -->
+                    </div>
               </div>
         </div>
         <!-- <hr> -->
@@ -437,19 +360,7 @@
         
     
         <div class="row">
-          <div class="principal">
-            <div class="box">
-              <div class="small-box1">
-                <a href="{% url 'officier:declaration' %}"><h5>Déclaration</h5></a>
-                <!-- <img src="emprunt.jpg" alt="emprunt"> -->
-                <!-- Small Box -->
-              </div>&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="small-box2">
-                <h5>Numérisation</h5>
-              </div>
-            </div>
-          </div>
-        <!-- <form method="post" class="form-container" action="{% url 'officier:chef' %}">
+        <form method="post" class="form-container" action="{% url 'officier:chef' %}">
             {% csrf_token %}
             <div class="row">
                 <button class="annuler-button"><i class="fa-solid fa-delete-left"></i> annulation</button>
@@ -484,7 +395,7 @@
                 {{ enfant_form.as_p }}
             </fieldset>
 
-        </form> -->
+        </form>
 
         <div class="section-declaration">
             <h4>Declaration 2576</h4>

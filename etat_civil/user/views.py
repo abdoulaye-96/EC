@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserLoginForm, UserRegisterForm
 from .models import *
 
+
 def home(request):
     return render(request, 'home.html')
 
@@ -16,7 +17,7 @@ def login_page(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('/home/')
+                return redirect('/user/home/')
             else:
                 messages.error(request, "Invalid username or password.")
         else:

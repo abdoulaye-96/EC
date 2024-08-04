@@ -28,6 +28,14 @@ class UserRegisterForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ['nom', 'prenom', 'username', 'password1', 'password2', 'fonction']
+        widgets = {
+            'nom': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nom'}),
+            'prenom': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Prénom'}),
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
+            'fonction': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Fonction'}),
+            'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
+            'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Password'}),
+        }
 
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')

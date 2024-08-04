@@ -1,3 +1,7 @@
+"""
+    urls of the user app.
+"""
+
 from django.urls import path
 from .views import home, login_page, logout_page, register_page
 

@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logged Out</title>
     <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, yellow, pink, orange, red);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
         .button {
             background-color: #4CAF50; /* Green */
             border: none;
@@ -18,11 +36,12 @@
             cursor: pointer;
             border-radius: 12px;
         }
+
     </style>
 </head>
 <body>
-    <h1>You have been logged out</h1>
-    <p>Thank you for visiting. You have been successfully logged out.</p>
+    <h1>You have been logged out</h1><br>
+    <p>Thank you for visiting. You have been successfully logged out.</p><br>
     <a href="{% url 'user:login' %}" class="button">Login Again</a>
 </body>
 </html>

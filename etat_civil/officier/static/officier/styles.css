@@ -1,0 +1,28 @@
+fieldset {
+    border: 1px solid #ccc;
+    padding: 100px;
+    margin-bottom: 100px;
+}
+legend {
+    font-weight: bold;
+}
+.radio-buttons {
+    display: flex;
+    align-items: center;
+}
+.radio-buttons label {
+    margin-right: 10px;
+}
+.submit-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
